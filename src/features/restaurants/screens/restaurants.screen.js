@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { StyleSheet, Text, View, SafeAreaView, Platform, StatusBar } from 'react-native';
+import { FlatList, SafeAreaView, StatusBar, View } from 'react-native';
 import { Searchbar } from 'react-native-paper';
+import { Spacer } from '../../../components/spacer/spacer.component';
 import { RestaurantInfo } from '../components/restaurant-info.component';
 
 
@@ -25,9 +26,32 @@ export const RestaurantsScreen = () => (
           placeholder="Search"
         />
       </SearchBarView>
-      <CardView>
-        <RestaurantInfo />
-      </CardView>
+      <FlatList
+      data={[
+        { name: 1 },
+        { name: 2 },
+        { name: 3 },
+        { name: 4 },
+        { name: 5 },
+        { name: 6 },
+        { name: 7 },
+        { name: 8 },
+        { name: 9 },
+        { name: 10 },
+        { name: 11 },
+        { name: 12 },
+        { name: 13 },
+        { name: 14 },
+      ]}
+      renderItem={() =>
+      <Spacer>
+          <RestaurantInfo />
+      </Spacer>  
+      }
+      keyExtractor={(item) => item.name}
+      contentContainerStyle={{ padding: 16}}
+      />
+    
   </SafeAreaS>
 )
 
